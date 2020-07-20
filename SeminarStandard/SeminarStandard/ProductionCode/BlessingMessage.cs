@@ -2,17 +2,17 @@
 
 namespace SeminarStandard.ProductionCode
 {
-	public class SimpleMessage : IFormatedMessage
+	public class BlessingMessage : IFormatedMessage
 	{
-		const string hello = "Hello";
-		const string and = "and";
-		const string coma = ",";
+		const string hello = "May you be blessed";
+		const string and = "&";
+		const string separator = "and best wishes to";
 
 		public string[] Names { get; set; }
 
 		public string GetStartMessage(string name)
 		{
-			return $"{hello}{coma} {name}";
+			return $"{hello}{separator} {name}";
 		}
 
 		public string GetEndMessage(string res, string name)
@@ -22,7 +22,7 @@ namespace SeminarStandard.ProductionCode
 
 		public string GetTwoNamesMessage(string name1, string name2)
 		{
-			return $"{hello}{coma} {name1} {and} {name2}.";
+			return $"{hello}{separator} {name1} {and} {name2}.";
 		}
 
 		public void SetFilteredNames(string[] names)
