@@ -35,13 +35,65 @@ namespace SeminarStandard
 			//TODO: MAKE UNIT TESTS FOR FACTORY, FORMATED MESSAGE CLASSSES
 			IFormatedMessage simpleMessage = new SimpleMessage();
 			IFormatedMessage shoutingMessage = new ShoutingMessage();
+			IFormatedMessage royalMessage = new RoyalMessage();
+			IFormatedMessage blessingMessage = new BlessingMessage();
+			
 			simpleMessage.SetFilteredNames(names);
 			shoutingMessage.SetFilteredNames(names);
+			royalMessage.SetFilteredNames(names);
+			blessingMessage.SetFilteredNames(names);
 
 			string simpleGreetings = GetNamesGreetingMesage(simpleMessage);
 			string shoutingGreetings = GetNamesGreetingMesage(shoutingMessage);
+			string royalGreetings = GetNamesGreetingMesage(royalMessage);
+			string blessingGreetings = GetNamesGreetingMesage(blessingMessage);
 
-			if (simpleGreetings.Length > 0 && shoutingGreetings.Length > 0)
+			if (simpleGreetings.Length > 0 && shoutingGreetings.Length > 0 && royalGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + shoutingGreetings + " AND " + royalGreetings + " AND " + blessingGreetings;
+			}
+			else if (simpleGreetings.Length > 0 && royalGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + royalGreetings + " AND " + blessingGreetings;
+			}
+			else if (shoutingGreetings.Length > 0 && royalGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = shoutingGreetings + " AND " + royalGreetings + " AND " +blessingGreetings;
+			}
+			else if (simpleGreetings.Length > 0 && shoutingGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + shoutingGreetings + " AND " +blessingGreetings;
+			}
+			else if (simpleGreetings.Length > 0 && shoutingGreetings.Length > 0 && royalGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + shoutingGreetings + " AND " + royalGreetings;
+			}
+			else if (shoutingGreetings.Length > 0 && royalGreetings.Length > 0)
+			{
+				result = shoutingGreetings + " AND " + royalGreetings;
+			}
+			else if (shoutingGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = shoutingGreetings + " AND " + blessingGreetings;
+			}
+			else if (simpleGreetings.Length > 0 && royalGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + royalGreetings;
+			}
+			else if (simpleGreetings.Length > 0 && blessingGreetings.Length > 0)
+			{
+				result = simpleGreetings + " AND " + blessingGreetings;
+			}
+			else if (royalGreetings.Length > 0)
+			{
+				result = royalGreetings;
+			}
+			else if (blessingGreetings.Length > 0)
+			{
+				result = blessingGreetings;
+			}
+
+			else if (simpleGreetings.Length > 0 && shoutingGreetings.Length > 0)
 			{
 				result = simpleGreetings + " AND " + shoutingGreetings;
 			}
@@ -49,7 +101,7 @@ namespace SeminarStandard
 			{
 				result = simpleGreetings;
 			}
-			else
+			else if (shoutingGreetings.Length > 0)
 			{
 				result = shoutingGreetings;
 			}

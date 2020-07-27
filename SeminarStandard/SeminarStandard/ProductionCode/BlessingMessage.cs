@@ -6,7 +6,7 @@ namespace SeminarStandard.ProductionCode
 	{
 		const string hello = "May you be blessed";
 		const string and = "&";
-		const string separator = "and best wishes to";
+		const string separator = " and best wishes to";
 
 		public string[] Names { get; set; }
 
@@ -27,7 +27,7 @@ namespace SeminarStandard.ProductionCode
 
 		public void SetFilteredNames(string[] names)
 		{
-			Names = names.Where(name => name != name.ToUpper()).ToArray();
+			Names = names.Where(name => name.Contains("Blessing")).ToArray();
 		}
 
 		public string GetSingleNameMessage(string name)

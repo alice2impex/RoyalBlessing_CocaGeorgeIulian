@@ -83,6 +83,30 @@ namespace SeminarStandard
 		{
 			ExecuteTest("AMY,BRIAN,Tudor,Andreea,GEORGE,Marian", "Hello, Tudor, Andreea, and Marian. AND HELLO AMY, BRIAN, AND GEORGE!");
 		}
+
+		[Test]
+		public void RoyalNames()
+		{
+			ExecuteTest("King Carol,King Ion,Queen Elena", "Greetings, Your Majesty King Carol, King Ion & Queen Elena.");
+		}
+
+		[Test]
+		public void BlessingNames()
+		{
+			ExecuteTest("Blessing Arsenie, Blessing Boca", "May you be blessed and best wishes to Blessing Arsenie &  Blessing Boca.");
+		}
+
+		[Test]
+		public void SimpleShoutingRoyalBlessing()
+		{
+			ExecuteTest("Ion,IGOR,King Mo,Blessing Boca", "Hello, Ion. AND HELLO IGOR! AND Greetings, King Mo. AND May you be blessed, Blessing Boca." );
+		}
+
+		[Test]
+		public void SimpleRoyalBlessing()
+		{
+			ExecuteTest("Ion,King Carol,Blessing Maria", "Hello, Ion. AND Greetings, King Carol. AND May you be blessed, Blessing Maria.");
+		}
 	}
 }
 

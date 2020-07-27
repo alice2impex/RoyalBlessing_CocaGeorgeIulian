@@ -6,7 +6,7 @@ namespace SeminarStandard.ProductionCode
 	{
 		const string hello = "Greetings";
 		const string and = "&";
-		const string separator = "Your Majesty";
+		const string separator = ", Your Majesty";
 
 		public string[] Names { get; set; }
 
@@ -17,7 +17,7 @@ namespace SeminarStandard.ProductionCode
 
 		public string GetEndMessage(string res, string name)
 		{
-			return $"{res}, {and} {name}.";
+			return $"{res} {and} {name}.";
 		}
 
 		public string GetTwoNamesMessage(string name1, string name2)
@@ -28,7 +28,7 @@ namespace SeminarStandard.ProductionCode
 		public void SetFilteredNames(string[] names)
 		{
 			//Royalitycheck
-			Names = names.Where(name => name != name.ToUpper()).ToArray();
+			Names = names.Where(name => (name.Contains("King") || name.Contains("Queen") || name.Contains("Prince") || name.Contains("Princess"))).ToArray();
 		}
 
 		public string GetSingleNameMessage(string name)

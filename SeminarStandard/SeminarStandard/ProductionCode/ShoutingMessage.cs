@@ -27,7 +27,7 @@ namespace SeminarStandard.ProductionCode
 
 		public void SetFilteredNames(string[] names)
 		{
-			Names = names.Where(name => name == name.ToUpper()).ToArray();
+			Names = names.Where(name => name == name.ToUpper() && !(name.Contains("King") || name.Contains("Queen") || name.Contains("Prince") || name.Contains("Princess") || name.Contains("Blessing"))).ToArray();
 		}
 
 		public string GetSingleNameMessage(string name)
